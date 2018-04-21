@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context="com.travel.hackroads.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/selectStrategyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#1E88E5"
+            android:layout_gravity="center_vertical"
+            android:text="选择策略" />
+
+        <TextView
+            android:id="@+id/strategyTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#1E88E5"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp"
+            android:text="无" />
+
+    </LinearLayout>
+
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/placesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1E88E5"
+        android:text="填写目的地" />
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/findRoadsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1E88E5"
+        android:text="查询路线" />
+
+</LinearLayout>
