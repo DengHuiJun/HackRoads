@@ -46,7 +46,14 @@
         <service android:name="com.amap.api.location.APSService" />
 
         <activity android:name=".RoadsActivity" />
-        <activity android:name=".AddPlaceActivity"></activity>
+        <activity
+            android:name=".AddPlaceActivity"
+            android:theme="@style/BaseAppTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            />
+        <activity android:name=".SearchActivity"
+            android:theme="@style/BaseAppTheme.SearchActivity"
+            />
     </application>
 
 </manifest>

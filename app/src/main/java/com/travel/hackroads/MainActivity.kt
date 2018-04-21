@@ -1,12 +1,13 @@
 package com.travel.hackroads
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.travel.hackroads.net.HttpManager
-import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.ArrayAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,39 +15,61 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val daysList = arrayOf("1天", "2天", "3天", "4天")
+        val adapter1 = ArrayAdapter(this, R.layout.sp_item, daysList)
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        daySp.adapter = adapter1
 
-        test.setOnClickListener {
-            req()
+        val routeList = arrayOf("最短路线", "吃货路线", "最高性价比")
+        val adapter2 = ArrayAdapter(this, R.layout.sp_item, routeList)
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        strategySp.adapter = adapter2
+
+        setPlaceBtn.setOnClickListener {
+            var i = Intent(this, AddPlaceActivity::class.java)
+            startActivityForResult(i, 0x01)
         }
 
         findRoadsBtn.setOnClickListener {
-            var i = Intent(this, RoadsActivity::class.java)
-            startActivity(i)
+            req()
         }
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK && requestCode == 0x01) {
+
+        }
     }
 
     fun req() {
-        var c = Consumer<Result> {
+        val day = daySp.selectedItemPosition
+        val strategy = strategySp.selectedItemPosition
 
-            val re = it
+        var b = reqBean()
+        b.days = day + 1
+        b.strategy = strategy + 1
+        b.places = PlaceData.reqPlaces
 
-            Toast.makeText(this, it.msg, Toast.LENGTH_SHORT).show()
+        HttpManager.getInstance().requestRoads(b) {
+            if(it.status != 200) {
+                Toast.makeText(this, "查询失败~", Toast.LENGTH_SHORT).show()
+                return@requestRoads
+            }
+
+            PlaceData.resultPositions = it.param.positions
+
+            if (PlaceData.resultPositions != null && PlaceData.resultPositions.size > 0) {
+                go()
+            } else {
+                Toast.makeText(this, "查询失败～", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
 
-        var b = Bean()
-        b.days = 1
-        b.strategy = 1
-
-        val list = ArrayList<Bean.PositionsBean>()
-        val pos = Bean.PositionsBean()
-        pos.lng = 23.397972
-        pos.lat = 116.397972
-        pos.place = "北京"
-        list.add(pos)
-
-        b.positions = list
-
-        HttpManager.getInstance().requestRoads(c, b)
+    fun go() {
+        var i = Intent(this, RoadsActivity::class.java)
+        startActivity(i)
     }
 }

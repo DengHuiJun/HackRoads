@@ -4,6 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="white">#fff</color>
 
     <color name="transparent">#00000000</color>
+
+    <color name="new_color_text_c10">#f69917</color>
+    <color name="new_color_text_c6">#999999</color>
+    <!-- C6 内容正文色 20% 不透明度 -->
+    <color name="new_color_text_c6_a20">#33999999</color>
+    <!-- C7 重点字体色/主要深色字体色 -->
+    <color name="new_color_text_c7">#333333</color>
+
+    <color name="dialog_bg">#A1000000</color>
 </resources>

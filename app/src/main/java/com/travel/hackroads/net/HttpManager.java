@@ -2,7 +2,8 @@ package com.travel.hackroads.net;
 
 import com.google.gson.Gson;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.travel.hackroads.Bean;
+import com.travel.hackroads.reqBean;
+import com.travel.hackroads.PlaceResult;
 import com.travel.hackroads.Result;
 
 import java.io.IOException;
@@ -65,12 +66,20 @@ public class HttpManager {
         mService = mRetrofit.create(RoadsServiceApi.class);
     }
 
-    public void requestRoads(Consumer<Result> consumer, Bean bean) {
+    public void requestRoads(reqBean bean, Consumer<Result> consumer) {
         String data = new Gson().toJson(bean);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"),
                 data);
 
         mService.getRoads(requestBody)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(consumer);
+    }
+
+    public void requestPlaces(Consumer<PlaceResult> consumer) {
+        mService.getPlaces()
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -14,9 +14,18 @@ public class Result {
      * param : {"positions":[{"lat":116.397972,"lng":23.397972,"place":"美食"},{"lat":116.397972,"lng":23.397972,"place":"美食"},{"lat":116.397972,"lng":23.397972,"place":"美食"}],"days":1,"strategy":1}
      */
 
+    private int status;
     private String msg;
     private String method;
     private ParamBean param;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public String getMsg() {
         return msg;

@@ -7,56 +7,91 @@
     android:padding="16dp"
     tools:context="com.travel.hackroads.MainActivity">
 
-    <EditText
-        android:id="@+id/daysEt"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请填写出行天数" />
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_day"/>
+
+        <TextView
+            android:id="@+id/trave"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="出行天数：" />
+
+        <Spinner
+            android:id="@+id/daySp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="无" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
 
-        <com.gc.materialdesign.views.ButtonRectangle
-            android:id="@+id/selectStrategyBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#1E88E5"
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_gravity="center_vertical"
-            android:text="选择策略" />
+            android:src="@mipmap/ic_strategy"/>
 
         <TextView
             android:id="@+id/strategyTv"
+            android:layout_marginLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#1E88E5"
             android:layout_gravity="center_vertical"
-            android:textSize="16sp"
+            android:text="路线策略：" />
+
+        <Spinner
+            android:id="@+id/strategySp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="无" />
 
     </LinearLayout>
 
-    <com.gc.materialdesign.views.ButtonRectangle
-    android:id="@+id/placesBtn"
-    android:layout_width="wrap_content"
-    android:layout_height="60dp"
-    android:background="#1E88E5"
-    android:text="填写目的地" />
 
-    <com.gc.materialdesign.views.ButtonRectangle
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#1E88E5"
-        android:text="测试api" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_place"/>
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/setPlaceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="#1E88E5"
+            android:layout_gravity="center_vertical"
+            android:text="设置景点" />
+
+    </LinearLayout>
 
     <com.gc.materialdesign.views.ButtonRectangle
         android:id="@+id/findRoadsBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorAccent"
-        android:text="查询路线" />
+        android:text="开始查询路线" />
 
 </LinearLayout>
