@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.gc.materialdesign.views.CheckBox
 import com.travel.hackroads.PlaceResult.PlacesBean
 
 /**
@@ -27,12 +28,13 @@ class PlaceAdapter(context : Context, listener : ClickItemPlace) : BaseAdapter()
         val data : PlacesBean = mData[position]
 
         val name = v.findViewById<TextView>(R.id.placeNameTv)
+        val ck = v.findViewById<CheckBox>(R.id.checkBox)
 
         name.text = data.name
+        ck.setOncheckListener({ view, check ->
+            orderListener.checkPlace(data, check)
+        })
 
-        v.setOnClickListener {
-            orderListener.addPlace(data)
-        }
         return v
     }
 
@@ -45,6 +47,6 @@ class PlaceAdapter(context : Context, listener : ClickItemPlace) : BaseAdapter()
     }
 
     interface ClickItemPlace {
-        fun addPlace(m:PlacesBean)
+        fun checkPlace(m:PlacesBean, b:Boolean)
     }
 }

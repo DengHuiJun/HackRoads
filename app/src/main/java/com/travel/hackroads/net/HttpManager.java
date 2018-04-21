@@ -1,5 +1,8 @@
 package com.travel.hackroads.net;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.travel.hackroads.reqBean;
@@ -66,7 +69,7 @@ public class HttpManager {
         mService = mRetrofit.create(RoadsServiceApi.class);
     }
 
-    public void requestRoads(reqBean bean, Consumer<Result> consumer) {
+    public void requestRoads(final Context c,reqBean bean,Consumer<Result> consumer) {
         String data = new Gson().toJson(bean);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"),
                 data);
@@ -75,15 +78,25 @@ public class HttpManager {
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(consumer);
+                .subscribe(consumer, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(c, "网络错误~", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
-    public void requestPlaces(Consumer<PlaceResult> consumer) {
+    public void requestPlaces(final Context c,Consumer<PlaceResult> consumer) {
         mService.getPlaces()
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(consumer);
+                .subscribe(consumer, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(c, "网络错误~", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 }

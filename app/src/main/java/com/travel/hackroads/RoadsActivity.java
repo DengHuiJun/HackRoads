@@ -42,7 +42,7 @@ public class RoadsActivity extends AppCompatActivity implements View.OnClickList
         resetMap.setOnClickListener(this);
         if (aMap == null) {
             aMap = mapView.getMap();
-            bluePos();
+//            bluePos();
             addMarkersToMap();// 往地图上添加marker
         }
     }
@@ -117,7 +117,7 @@ public class RoadsActivity extends AppCompatActivity implements View.OnClickList
 
             aMap.addPolyline(new PolylineOptions().addAll(latLngs).width(10).color(Color.RED));
 
-            aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngs.get(0), 11));
+            aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngs.get(0), 12));
         }
     }
 

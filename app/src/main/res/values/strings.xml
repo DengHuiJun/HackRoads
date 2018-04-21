@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">旅行猫</string>
+
+    <string name="firstcolor_pref_key">firstcolor_pref_key</string>
+    <string name="secondcolor_pref_key">secondcolor_pref_key</string>
+    <string name="thirdcolor_pref_key">thirdcolor_pref_key</string>
+    <string name="fourthcolor_pref_key">fourthcolor_pref_key</string>
 </resources>

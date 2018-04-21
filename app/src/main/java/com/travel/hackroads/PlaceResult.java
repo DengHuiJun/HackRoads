@@ -40,6 +40,15 @@ public class PlaceResult {
 
         private int id;
         private String name;
+        private boolean select;
+
+        public boolean isSelect() {
+            return select;
+        }
+
+        public void setSelect(boolean select) {
+            this.select = select;
+        }
 
         public int getId() {
             return id;

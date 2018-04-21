@@ -13,6 +13,11 @@ public class PlaceData {
     public static List<Integer> reqPlaces = new ArrayList<>();
     public static List<Result.ParamBean.PositionsBean> resultPositions = new ArrayList<>();
 
+    public static void clear() {
+        resultPlaces.clear();
+        reqPlaces.clear();
+        resultPositions.clear();
+    }
 //    public static PlaceData getInstance() {
 //        if (sData == null) {
 //            synchronized (PlaceData.class) {
