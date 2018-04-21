@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.amap.api.maps2d.AMap;
 import com.amap.api.maps2d.CameraUpdateFactory;
@@ -14,6 +13,7 @@ import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.MarkerOptions;
 import com.amap.api.maps2d.model.MyLocationStyle;
 import com.amap.api.maps2d.model.PolylineOptions;
+import com.gc.materialdesign.views.ButtonRectangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +36,9 @@ public class RoadsActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void init() {
-        Button clearMap = (Button) findViewById(R.id.clearMap);
+        ButtonRectangle clearMap =  findViewById(R.id.clearMap);
         clearMap.setOnClickListener(this);
-        Button resetMap = (Button) findViewById(R.id.resetMap);
+        ButtonRectangle resetMap =  findViewById(R.id.resetMap);
         resetMap.setOnClickListener(this);
         if (aMap == null) {
             aMap = mapView.getMap();

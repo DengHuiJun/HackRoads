@@ -3,16 +3,12 @@ package com.travel.hackroads
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity(),PlaceAdapter.ClickItemPlace {
-
-    override fun addPlace(m: PlaceResult.PlacesBean) {
+    override fun checkPlace(m: PlaceResult.PlacesBean, b: Boolean) {
 
     }
 

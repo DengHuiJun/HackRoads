@@ -25,19 +25,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-                <Button
+                <com.gc.materialdesign.views.ButtonRectangle
                     android:id="@+id/clearMap"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#1E88E5"
                     android:text="clear" />
 
-                <Button
+                <com.gc.materialdesign.views.ButtonRectangle
                     android:id="@+id/resetMap"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#1E88E5"
                     android:text="reset" />
+
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

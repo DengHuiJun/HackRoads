@@ -31,6 +31,7 @@ class PlaceAdapter(context : Context, listener : ClickItemPlace) : BaseAdapter()
         val ck = v.findViewById<CheckBox>(R.id.checkBox)
 
         name.text = data.name
+        ck.setChecked(data.isSelect)
         ck.setOncheckListener({ view, check ->
             orderListener.checkPlace(data, check)
         })
