@@ -33,7 +33,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="4a60b3733efb38443ea935d9b42afd5b"></meta-data>
+            android:value="4a60b3733efb38443ea935d9b42afd5b" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -45,7 +45,8 @@
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".RoadsActivity"></activity>
+        <activity android:name=".RoadsActivity" />
+        <activity android:name=".AddPlaceActivity"></activity>
     </application>
 
 </manifest>

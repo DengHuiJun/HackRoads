@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:padding="16dp"
     tools:context="com.travel.hackroads.MainActivity">
 
+    <EditText
+        android:id="@+id/daysEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请填写出行天数" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal">
 
         <com.gc.materialdesign.views.ButtonRectangle
@@ -34,19 +37,26 @@
 
     </LinearLayout>
 
+    <com.gc.materialdesign.views.ButtonRectangle
+    android:id="@+id/placesBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:background="#1E88E5"
+    android:text="填写目的地" />
 
     <com.gc.materialdesign.views.ButtonRectangle
-        android:id="@+id/placesBtn"
+        android:id="@+id/test"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="#1E88E5"
-        android:text="填写目的地" />
+        android:text="测试api" />
 
     <com.gc.materialdesign.views.ButtonRectangle
         android:id="@+id/findRoadsBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#1E88E5"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorAccent"
         android:text="查询路线" />
 
 </LinearLayout>
